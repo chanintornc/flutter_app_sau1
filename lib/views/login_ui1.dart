@@ -17,11 +17,14 @@ class LoginUI1 extends StatelessWidget {
                   'assets/images/education.png',
                   width: MediaQuery.of(context).size.width * 0.5,
                 ),
+                SizedBox(
+                  height: 20.0,
+                ),
                 RichText(
                   text: TextSpan(
                     children: [
                       TextSpan(
-                        text: 'SA',
+                        text: 'DTI',
                         style: TextStyle(
                           fontSize: 40.0,
                           fontWeight: FontWeight.bold,
@@ -29,7 +32,15 @@ class LoginUI1 extends StatelessWidget {
                         ),
                       ),
                       TextSpan(
-                        text: 'U',
+                        text: '-',
+                        style: TextStyle(
+                          fontSize: 40.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey[800],
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'IoT',
                         style: TextStyle(
                           fontSize: 40.0,
                           fontWeight: FontWeight.bold,
