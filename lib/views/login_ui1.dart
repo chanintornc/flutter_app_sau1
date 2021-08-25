@@ -28,7 +28,7 @@ class LoginUI1 extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 40.0,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xff101276),
+                          color: Colors.purple,
                         ),
                       ),
                       TextSpan(
@@ -36,7 +36,23 @@ class LoginUI1 extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 40.0,
                           fontWeight: FontWeight.bold,
-                          color: Colors.grey[800],
+                          color: Colors.redAccent,
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'BC',
+                        style: TextStyle(
+                          fontSize: 40.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blue,
+                        ),
+                      ),
+                      TextSpan(
+                        text: '-',
+                        style: TextStyle(
+                          fontSize: 40.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.redAccent,
                         ),
                       ),
                       TextSpan(
@@ -44,7 +60,7 @@ class LoginUI1 extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 40.0,
                           fontWeight: FontWeight.bold,
-                          color: Colors.amber,
+                          color: Colors.red[800],
                         ),
                       ),
                     ],
@@ -170,7 +186,12 @@ class LoginUI1 extends StatelessWidget {
                     children: [
                       Expanded(
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            showAlertDialog(
+                              context,
+                              'คุณกำลังลงทะเบียน',
+                            );
+                          },
                           child: Text(
                             'ลงทะเบียน',
                             style: TextStyle(
@@ -184,7 +205,12 @@ class LoginUI1 extends StatelessWidget {
                       ),
                       Expanded(
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            showAlertDialog(
+                              context,
+                              'คุณลืมรหัสผ่าน',
+                            );
+                          },
                           child: Text(
                             'ลืมรหัสผ่าน?',
                             style: TextStyle(
@@ -200,7 +226,12 @@ class LoginUI1 extends StatelessWidget {
                   ),
                 ),
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showAlertDialog(
+                      context,
+                      'คุณกำลังเข้าใช้งานด้วยชื่อผู้ใช้และรหัสผ่าน',
+                    );
+                  },
                   child: Text(
                     'เข้าใช้งาน',
                     style: TextStyle(
@@ -256,7 +287,12 @@ class LoginUI1 extends StatelessWidget {
                   height: 10.0,
                 ),
                 ElevatedButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    showAlertDialog(
+                      context,
+                      'คุณกำลังเข้าใช้งานด้วย Facebook Account',
+                    );
+                  },
                   icon: FaIcon(
                     FontAwesomeIcons.facebookF,
                   ),
@@ -280,7 +316,12 @@ class LoginUI1 extends StatelessWidget {
                   height: 10.0,
                 ),
                 ElevatedButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    showAlertDialog(
+                      context,
+                      'คุณกำลังเข้าใช้งานด้วย Google Account',
+                    );
+                  },
                   icon: FaIcon(
                     FontAwesomeIcons.googlePlusG,
                   ),
@@ -304,7 +345,12 @@ class LoginUI1 extends StatelessWidget {
                   height: 10.0,
                 ),
                 ElevatedButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    showAlertDialog(
+                      context,
+                      'คุณกำลังเข้าใช้งานด้วย Apple ID',
+                    );
+                  },
                   icon: FaIcon(
                     FontAwesomeIcons.apple,
                   ),
@@ -329,6 +375,61 @@ class LoginUI1 extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  showAlertDialog(context, strContent) async {
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (context) {
+        return WillPopScope(
+          onWillPop: () async {
+            return false;
+          },
+          child: AlertDialog(
+            title: Container(
+              width: double.infinity,
+              color: Colors.blue,
+              padding: EdgeInsets.only(
+                top: 14.0,
+                bottom: 14.0,
+              ),
+              child: Text(
+                'ข้อความแจ้ง',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+            ),
+            content: Text(
+              strContent,
+              textAlign: TextAlign.center,
+            ),
+            actions: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text(
+                      'ตกลง',
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.green,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }
