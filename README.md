@@ -1,4 +1,4 @@
-# flutter_app_sau1
+# flutter_app_sau1 by NinniN
 
 A new Flutter project.
 
